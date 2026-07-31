@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Spesial Untukmu 💖</title>
+    <!-- Font Keren -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- GANTI LINK LAGU DI SINI -->
+    <!-- ============================================== -->
+    <audio id="bgMusic" loop>
+        <source src="monokrom.mp3.aac" type="audio/mpeg">
+    </audio>
+
+    <!-- Animasi Background Hati -->
+    <div id="floating-hearts"></div>
+
+    <main class="container">
+        
+        <!-- SLIDE 1: HALAMAN UTAMA / GAYA UNDANGAN -->
+        <section id="slide-1" class="slide active">
+            <div class="card-box invitation-card">
+                <div class="badge">Spesial Untuk Kamu</div>
+                <h1>Happy Girlfriend Day</h1>
+                <p class="invitation-subtitle">Kepada Kesayanganku,</p>
+                <p class="invitation-desc">Kamu mendapat undangan eksklusif untuk membuka sebuah kejutan penuh cinta dariku.</p>
+                <button class="btn" onclick="pindahSlide(2)">Buka Undangan 💌</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: INPUT SANDI / PASSWORD -->
+        <section id="slide-2" class="slide hidden">
+            <div class="card-box">
+                <div class="icon-love">🔐</div>
+                <h2>Masukkan Kata Sandi</h2>
+                <p style="font-size: 13px; margin-bottom: 15px;">Petunjuk: Tanggal jadian kita atau nama panggilan sayang (Contoh: *sayang* / *0101*)</p>
+                
+                <input type="password" id="password-input" placeholder="Ketik sandinya di sini..." />
+                <p id="error-msg" class="error-text"></p>
+                
+                <button class="btn" onclick="cekPassword()">Masuk 💖</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: KATA-KATA ROMANTIS -->
+        <section id="slide-3" class="slide hidden">
+            <div class="card-box">
+                <h1>Hai Sayang...</h1>
+                <p class="message-text">
+                    Terima kasih ya udah selalu ada, selalu sabar, dan jadi alasan aku senyum setiap hari. 
+                    Kamu itu hal terbaik yang pernah terjadi di hidupku. I love you more than words can say! ✨
+                </p>
+                <button class="btn" onclick="pindahSlide(4)">Lanjut Dong 🥰</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: ALASAN SAYANG -->
+        <section id="slide-4" class="slide hidden">
+            <div class="card-box">
+                <h2>Alasan Aku Sayang Kamu</h2>
+                <ul class="reasons-list">
+                    <li>✨ Senyuman kamu bisa bikin hariku langsung cerah</li>
+                    <li>🧸 Kamu pendengar yang paling baik buat aku</li>
+                    <li>💖 Perhatian kecilmu selalu bikin aku merasa beruntung</li>
+                </ul>
+                <button class="btn" onclick="pindahSlide(5)">Lihat Foto Kita 📸</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: GALERI FOTO -->
+        <section id="slide-5" class="slide hidden">
+            <div class="card-box">
+                <h2>Memori Kita</h2>
+                <div class="photo-gallery">
+                    <!-- ============================================== -->
+                    <!-- GANTI LINK FOTO-FOTO KALIAN DI SINI -->
+                    <!-- ============================================== -->
+                    <div class="photo-frame">
+                        <img src="sabrinasyg.jpg.jpeg" alt="Foto 1">
+                    </div>
+                    <div class="photo-frame">
+                        <img src="sayng2.jpg.jpeg" alt="Foto 2">
+                    </div>
+                </div>
+                <p>Setiap detik bareng kamu itu berharga banget.</p>
+                <button class="btn" onclick="pindahSlide(6)">Main Game Dulu Yuk! 🎮</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: MINI GAME -->
+        <section id="slide-6" class="slide hidden">
+            <div class="card-box">
+                <h2>Tebak Pasangan</h2>
+                <p style="font-size: 13px; margin-bottom: 12px;">Samakan semua kartunya buat lanjut ke tahap akhir!</p>
+                
+                <div class="game-board" id="game-board">
+                    <!-- Kartu game di-generate lewat JavaScript -->
+                </div>
+
+                <button class="btn btn-hidden" id="btn-next-game" onclick="pindahSlide(7)">Janji Kecil Kita 🤝</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: JANJI KECIL KITA -->
+        <section id="slide-7" class="slide hidden">
+            <div class="card-box">
+                <h2>Janji Kecil Kita</h2>
+                <p class="message-text">
+                    Apapun yang terjadi kedepannya, aku janji bakal terus berusaha jadi tempat pulang yang nyaman buat kamu, saling mendengarkan, dan tumbuh bersama. 🌸
+                </p>
+                <button class="btn" onclick="pindahSlide(8)">Harapan Kedepan 🌟</button>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: PENUTUP & KIRIM WA -->
+        <section id="slide-8" class="slide hidden">
+            <div class="card-box">
+                <h1 style="font-size: 2.3rem;">I Love You! 💖</h1>
+                <p>Semoga kamu suka ya sama kejutan ini. Terus jadi pacar yang hebat ya sayangku!</p>
+                <div class="big-emoji">👩‍❤️‍👨</div>
+                
+                <!-- TOMBOL KIRIM KE WHATSAPP (GANTI NOMOR HP DI SCRIPT.JS) -->
+                <button class="btn btn-whatsapp" onclick="kirimKeWhatsApp()">Kirim Pesan ke WhatsApp 📱</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

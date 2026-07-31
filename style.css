@@ -1,0 +1,252 @@
+/* RESET & FONT */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #444;
+}
+
+/* ANIMASI LATAR BELAKANG */
+#floating-hearts {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart-anim {
+    position: absolute;
+    bottom: -50px;
+    font-size: 24px;
+    animation: flyUp linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes flyUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* KOTAK UTAMA (GLASSMORPHISM) */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.card-box {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* GAYA UNDANGAN KHUSUS SLIDE 1 */
+.invitation-card {
+    border: 3px dashed #ff477e;
+}
+.badge {
+    background: #ff477e;
+    color: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.invitation-subtitle {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+.invitation-desc {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* INPUT PASSWORD */
+#password-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #ffb6c1;
+    border-radius: 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+#password-input:focus {
+    border-color: #ff477e;
+}
+.error-text {
+    color: #ff3366;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    min-height: 20px;
+}
+
+/* PENGATUR SLIDE */
+.slide { display: none; }
+.slide.active { display: block; }
+
+/* TIPOGRAFI */
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff477e;
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+}
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.icon-love { font-size: 45px; margin-bottom: 10px; animation: beat 1s infinite alternate; }
+.big-emoji { font-size: 50px; margin-top: 5px; margin-bottom: 10px; }
+
+@keyframes beat {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+/* LIST ALASAN */
+.reasons-list {
+    text-align: left;
+    list-style: none;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+.reasons-list li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+/* TOMBOL ESTETIK */
+.btn {
+    background: linear-gradient(45deg, #ff477e, #ff7096);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 71, 126, 0.6);
+}
+.btn-hidden { display: none; margin-top: 15px; }
+
+/* TOMBOL WHATSAPP KHUSUS */
+.btn-whatsapp {
+    background: linear-gradient(45deg, #25d366, #128c7e);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    margin-top: 10px;
+}
+.btn-whatsapp:hover {
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* GALERI FOTO */
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.photo-frame {
+    background: white;
+    padding: 6px 6px 20px 6px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transform: rotate(-4deg);
+    transition: transform 0.3s;
+}
+.photo-frame:nth-child(2) { transform: rotate(4deg); }
+.photo-frame:hover { transform: scale(1.08) rotate(0deg); z-index: 10; }
+.photo-frame img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* MINI GAME - MEMORY MATCH */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    perspective: 1000px;
+    margin-bottom: 15px;
+}
+.card {
+    background: #ff7096;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+.card .front, .card .back {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.card .front { background: #ff7096; color: transparent; }
+.card .front::after { content: '❓'; color: white; font-size: 1.3rem; }
+.card .back {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.card.flipped { transform: rotateY(180deg); }
+.card.matched {
+    background: #b5e48c;
+    box-shadow: 0 0 10px rgba(181, 228, 140, 0.8);
+    pointer-events: none;
+}
